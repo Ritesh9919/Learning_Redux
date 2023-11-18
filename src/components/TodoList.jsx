@@ -1,11 +1,12 @@
 
 import { useSelector, useDispatch } from "react-redux";
-import {toggleTodo} from '../redux/actions/todoAction';
+// import {toggleTodo} from '../redux/actions/todoAction';
+import {actions, todoSelector} from '../redux/reducers/todoReducer';
 
 
 const TodoList = ()=> {
     const dispatch = useDispatch();
-    const todos = useSelector((state)=> state.todos);
+    const todos = useSelector(todoSelector);
     return (
         <>
         <div className="todoList-container">
@@ -14,7 +15,7 @@ const TodoList = ()=> {
                     <div className="todo-item" key={todo.id}>
                     <p>{todo.text}</p>
                     <p className={todo.completed ? 'todo-completed':'todo-pending'}>{todo.completed ? 'Completed':'Pending'}</p>
-                    <button className="toggle-btn" onClick={()=> {dispatch(toggleTodo(index))}}>Toggle</button>
+                    <button className="toggle-btn" onClick={()=> {dispatch(actions.toggle(index))}}>Toggle</button>
                 </div>
                 )
             })}

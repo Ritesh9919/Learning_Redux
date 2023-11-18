@@ -1,16 +1,16 @@
 import {Provider} from 'react-redux';
 import {store} from './redux/store';
-import { useState } from "react";
 import { TodoForm,TodoList } from "./components";
+
 
 function App() {
   
   return (
     <div className="App">
-      <h1>Todo App</h1>
+      <h1 style={{textAlign:'center', color:'gray'}}>Todo App</h1>
       <Provider store={store}>
-       <TodoForm/>
-       <TodoList/>
+        <TodoForm/>
+        <TodoList/>
        </Provider>
 
     </div>

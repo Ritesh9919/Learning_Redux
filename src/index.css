@@ -12,11 +12,7 @@ code {
     monospace;
 }
 
-h1{
-  text-align: center;
-  font-family: sans-serif;
-  margin-top: 5rem;
-}
+
 
 
 .form {
@@ -24,6 +20,7 @@ h1{
   justify-content: center;
   align-items: center;
   gap:10px;
+  
   
 
 }
@@ -85,3 +82,4 @@ h1{
   background-color:rgb(255, 230, 0);
   border-radius: 4px;
 }
+
