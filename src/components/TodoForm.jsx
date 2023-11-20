@@ -1,15 +1,23 @@
 import { useState } from "react";
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 // import {addTodo} from '../redux/actions/todoAction';
 import {actions} from '../redux/reducers/todoReducer';
+import { notificationSelector } from "../redux/reducers/notificationReducer";
+import {toast} from 'react-toastify';
+import { toastConfig } from "../utils";
 
 const TodoForm = () => {
     const [todoText, setTodoText] = useState('');
-    const dispatch = useDispatch();
+    const message = useSelector(notificationSelector);
+    
+      
+      const dispatch = useDispatch();
 
     const handleSubmit = (e)=> {
       e.preventDefault();
       dispatch(actions.add(todoText));
+      
+      toast.success(message, toastConfig);
       setTodoText('');
     }
 

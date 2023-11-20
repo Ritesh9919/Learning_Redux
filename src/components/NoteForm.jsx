@@ -16,6 +16,7 @@ const handleSubmit = (e) => {
 
   return (
     <>
+    <h1>Note App</h1>
     <form className="note-form" onSubmit={handleSubmit}>
       <div>
         <textarea rows="5" cols="50" placeholder="type here..." value={noteText} onChange={(e)=> setNoteText(e.target.value)}></textarea>

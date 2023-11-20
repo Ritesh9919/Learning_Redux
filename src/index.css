@@ -12,7 +12,10 @@ code {
     monospace;
 }
 
-
+h1{
+  text-align: center;
+  color: gray;
+}
 
 
 .form {
