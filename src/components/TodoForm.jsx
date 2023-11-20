@@ -16,9 +16,9 @@ const TodoForm = () => {
     const handleSubmit = (e)=> {
       e.preventDefault();
       dispatch(actions.add(todoText));
-      
-      toast.success(message, toastConfig);
       setTodoText('');
+      toast.success(message, toastConfig);
+      
     }
 
     

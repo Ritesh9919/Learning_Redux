@@ -6,14 +6,14 @@ import { actions, noteReducer, noteSelector } from "../redux/reducers/noteReduce
 const NoteList = ()=> {
     const dispatch = useDispatch();
     const notes = useSelector(noteSelector);
-    console.log(notes);
+    
 
  return (
     <div className="note-lists">
         {notes.map((note, index)=> {
             return (
                 <div className="note-item">
-                <p>{note.createdOn.toLocaleDateString()}</p>
+                <p>{note.createdOn.toDateString()}</p>
                 <h2>{note.text}</h2>
                 <button onClick={()=> dispatch(actions.delete(index))}>Delete</button>
               </div>

@@ -1,15 +1,21 @@
 import NoteList from "./NoteList";
 import {useState } from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {actions} from '../redux/reducers/noteReducer';
+import { notificationSelector } from "../redux/reducers/notificationReducer";
+import { toast } from "react-toastify";
+import { toastConfig } from "../utils";
+
 
 const NoteForm = () => {
   const [noteText, setNoteText] = useState('');
   const dispatch = useDispatch();
+  const message = useSelector(notificationSelector);
   
 const handleSubmit = (e) => {
   e.preventDefault();
   dispatch(actions.add(noteText));
+  toast.success(message, toastConfig);
   setNoteText('');
 
 }
