@@ -22,6 +22,7 @@ const TodoList = ()=> {
             
             
         </div>
+        <hr/>
         </>
     )
 }

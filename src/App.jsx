@@ -1,6 +1,6 @@
 import {Provider} from 'react-redux';
 import {store} from './redux/store';
-import { TodoForm,TodoList } from "./components";
+import { NoteForm, TodoForm,TodoList } from "./components";
 
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <Provider store={store}>
         <TodoForm/>
         <TodoList/>
+        <NoteForm/>
        </Provider>
 
     </div>

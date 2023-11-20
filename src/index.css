@@ -83,3 +83,27 @@ code {
   border-radius: 4px;
 }
 
+
+.note-form {
+  width:50%;
+  margin: 3rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note-lists{
+  width: 50%;
+  margin: 5rem auto 0 auto;
+}
+
+.note-item{
+  width:90%;
+  padding: 5px 10px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
