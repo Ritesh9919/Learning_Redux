@@ -16,6 +16,8 @@ const TodoForm = () => {
     const handleSubmit = (e)=> {
       e.preventDefault();
       dispatch(actions.add(todoText));
+      // mannual logger
+      // console.log("[log]: todo add action dispatches");
       setTodoText('');
       toast.success(message, toastConfig);
       
