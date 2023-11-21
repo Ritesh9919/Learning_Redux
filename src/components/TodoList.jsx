@@ -1,16 +1,18 @@
 
 import { useSelector, useDispatch } from "react-redux";
 // import {toggleTodo} from '../redux/actions/todoAction';
-import {actions, todoSelector} from '../redux/reducers/todoReducer';
+import {actions, todoSelector, getInitialStateAsync} from '../redux/reducers/todoReducer';
+
 import { useEffect } from "react";
-import axios from 'axios';
+
 
 
 const TodoList = ()=> {
     const dispatch = useDispatch();
     const todos = useSelector(todoSelector);
 
-    useEffect(()=> {
+     useEffect(()=> {
+        dispatch(getInitialStateAsync())
         // Api call Using fetch
 
         // fetch("http://localhost:8000/todos")
@@ -23,13 +25,13 @@ const TodoList = ()=> {
 
     
         // API call using axios
-           axios.get('http://localhost:8000/todos')
-           .then((res)=> {
-            console.log(res.data);
-            dispatch(actions.setInitialState(res.data));
-           })
+    //        axios.get('http://localhost:8000/todos')
+    //        .then((res)=> {
+    //         console.log(res.data);
+    //         dispatch(actions.setInitialState(res.data));
+    //        })
 
-    },[]);
+     },[]);
 
     return (
         <>

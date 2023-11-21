@@ -1,9 +1,19 @@
-const {createSlice} = require('@reduxjs/toolkit');
+import axios from 'axios';
+const {createSlice, createAsyncThunk} = require('@reduxjs/toolkit');
+
 
 const initialState = {
   todos: [],
 };
 
+
+export const getInitialStateAsync = createAsyncThunk("todo/getInitialState", (args, thunkApi)=> {
+  axios.get('http://localhost:8000/todos')
+  .then((res)=> {
+   thunkApi.dispatch(actions.setInitialState(res.data));
+   
+  })
+})
 
 // Creating reducer using redux toolkit
 
