@@ -7,13 +7,15 @@ const initialState = {
 };
 
 
-export const getInitialStateAsync = createAsyncThunk("todo/getInitialState", (args, thunkApi)=> {
-  axios.get('http://localhost:8000/todos')
-  .then((res)=> {
-   thunkApi.dispatch(actions.setInitialState(res.data));
-   
-  })
-})
+export const getInitialStateAsync = createAsyncThunk("todo/getInitialState", 
+//async(args, thunkApi)=> {
+  //  const {data} = await axios.get('/todos');
+  //  thunkApi.dispatch(actions.setInitialState(data));
+   () => {
+    return axios.get('/todos');
+   }
+
+)
 
 // Creating reducer using redux toolkit
 
@@ -39,6 +41,11 @@ const todoSlice = createSlice({
         return todo
        })
     }
+  },
+  extraReducers:(builder)=> {
+    builder.addCase(getInitialStateAsync.fulfilled, (state, action)=> {
+      state.todos = [...action.payload.data];
+    })
   }
 });
 
