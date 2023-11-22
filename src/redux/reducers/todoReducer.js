@@ -17,6 +17,25 @@ export const getInitialStateAsync = createAsyncThunk("todo/getInitialState",
 
 )
 
+export const addTodoAsync = createAsyncThunk("todo.addTodo", async(payload)=> {
+  
+  // const res = await fetch('/todos', {
+  //   method:'POST',
+  //   headers:{
+  //     'content-type':'application/json'
+  //   },
+  //   body:JSON.stringify({
+  //     text:payload
+  //   })
+  // })
+  // return res.json()
+  const res = await axios.post('/todos', {
+    text:payload
+  })
+  return res;
+
+} )
+
 // Creating reducer using redux toolkit
 
 const todoSlice = createSlice({
@@ -45,6 +64,9 @@ const todoSlice = createSlice({
   extraReducers:(builder)=> {
     builder.addCase(getInitialStateAsync.fulfilled, (state, action)=> {
       state.todos = [...action.payload.data];
+    })
+    .addCase(addTodoAsync.fulfilled, (state, action)=> {
+      state.todos.push(action.payload.data);
     })
   }
 });
